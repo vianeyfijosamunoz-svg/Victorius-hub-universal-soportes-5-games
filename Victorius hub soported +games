@@ -1,4 +1,3 @@
--- Servicios necesarios
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
@@ -6,20 +5,15 @@ local StarterGui = game:GetService("StarterGui")
 local Player = Players.LocalPlayer
 local PlayerGui = Player:WaitForChild("PlayerGui")
 
--- Destruir interfaz anterior si ya existe para evitar duplicados
 if PlayerGui:FindFirstChild("CustomHubGui") then
     PlayerGui.CustomHubGui:Destroy()
 end
 
--- Crear ScreenGui principal
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Name = "CustomHubGui"
 ScreenGui.ResetOnSpawn = false
 ScreenGui.Parent = PlayerGui
 
--- ==========================================
--- 1. PANTALLA DE CARGA (5 SEGUNDOS)
--- ==========================================
 local LoadingFrame = Instance.new("Frame")
 LoadingFrame.Size = UDim2.new(0, 340, 0, 190)
 LoadingFrame.Position = UDim2.new(0.5, -170, 0.5, -95)
@@ -62,9 +56,6 @@ task.wait(2.5)
 
 LoadingFrame:Destroy()
 
--- ==========================================
--- 2. KEY SYSTEM (KEY_"TRIAL")
--- ==========================================
 local KeyFrame = Instance.new("Frame")
 KeyFrame.Size = UDim2.new(0, 360, 0, 220)
 KeyFrame.Position = UDim2.new(0.5, -180, 0.5, -110)
@@ -120,9 +111,6 @@ local UICornerSub = Instance.new("UICorner")
 UICornerSub.CornerRadius = UDim.new(0, 10)
 UICornerSub.Parent = SubmitBtn
 
--- ==========================================
--- 3. VENTANA PRINCIPAL (VICTORIUS HUB)
--- ==========================================
 local MainFrame = Instance.new("Frame")
 MainFrame.Size = UDim2.new(0, 440, 0, 480)
 MainFrame.Position = UDim2.new(0.5, -220, 0.5, -240)
@@ -142,7 +130,6 @@ UIStrokeMain.Color = Color3.fromRGB(130, 65, 255)
 UIStrokeMain.Thickness = 2
 UIStrokeMain.Parent = MainFrame
 
--- Barra Superior
 local TopBar = Instance.new("Frame")
 TopBar.Size = UDim2.new(1, 0, 0, 50)
 TopBar.BackgroundColor3 = Color3.fromRGB(20, 20, 27)
@@ -164,7 +151,6 @@ TitleLabel.Font = Enum.Font.GothamBold
 TitleLabel.TextXAlignment = Enum.TextXAlignment.Left
 TitleLabel.Parent = TopBar
 
--- Botón Flotante Circular
 local OpenFloatingBtn = Instance.new("TextButton")
 OpenFloatingBtn.Size = UDim2.new(0, 50, 0, 50)
 OpenFloatingBtn.Position = UDim2.new(0, 20, 0, 20)
@@ -211,9 +197,6 @@ OpenFloatingBtn.MouseButton1Click:Connect(function()
     OpenFloatingBtn.Visible = false
 end)
 
--- ==========================================
--- BARRA DE REDES SOCIALES
--- ==========================================
 local SocialBar = Instance.new("Frame")
 SocialBar.Size = UDim2.new(1, -30, 0, 40)
 SocialBar.Position = UDim2.new(0, 15, 0, 60)
@@ -288,9 +271,6 @@ createSocialBtn("🎮 Roblox", "gang123ii", Color3.fromRGB(220, 50, 50))
 createSocialBtn("💬 Discord", "discord.gg/tvYWHS2B8", Color3.fromRGB(88, 101, 242))
 createSocialBtn("📺 YouTube", "@gangnowin", Color3.fromRGB(255, 0, 0))
 
--- ==========================================
--- 4. SISTEMA DE PESTAÑAS (MAIN y UNIVERSAL)
--- ==========================================
 local TabBar = Instance.new("Frame")
 TabBar.Size = UDim2.new(1, -30, 0, 38)
 TabBar.Position = UDim2.new(0, 15, 0, 110)
@@ -332,7 +312,6 @@ local UICornerUBtn = Instance.new("UICorner")
 UICornerUBtn.CornerRadius = UDim.new(0, 8)
 UICornerUBtn.Parent = UnivTabBtn
 
--- Contenedores de Secciones
 local MainContainer = Instance.new("ScrollingFrame")
 MainContainer.Size = UDim2.new(1, -30, 1, -165)
 MainContainer.Position = UDim2.new(0, 15, 0, 155)
@@ -367,7 +346,6 @@ UnivLayout.SortOrder = Enum.SortOrder.LayoutOrder
 UnivLayout.Padding = UDim.new(0, 12)
 UnivLayout.Parent = UnivContainer
 
--- Cambiar entre pestañas
 MainTabBtn.MouseButton1Click:Connect(function()
     MainContainer.Visible = true
     UnivContainer.Visible = false
@@ -386,11 +364,6 @@ UnivTabBtn.MouseButton1Click:Connect(function()
     MainTabBtn.TextColor3 = Color3.fromRGB(170, 170, 190)
 end)
 
--- ==========================================
--- 5. LEYENDA DE COLORES (IZQUIERDA) Y SCRIPTS (DERECHA) EN MAIN
--- ==========================================
-
--- Panel superior que muestra la leyenda de los colores de estado
 local LegendFrame = Instance.new("Frame")
 LegendFrame.Size = UDim2.new(1, -10, 0, 75)
 LegendFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 27)
@@ -433,7 +406,7 @@ end
 createLegendItem(Color3.fromRGB(45, 195, 90), "Verde: Funcional", 12)
 createLegendItem(Color3.fromRGB(255, 195, 50), "Amarillo: Mantenimiento", 32)
 createLegendItem(Color3.fromRGB(50, 150, 255), "Azul: Próximamente", 52)
--- Colocamos la roja en la segunda columna de la leyenda
+
 local function createLegendItemRight(color, text, yPos)
     local dot = Instance.new("Frame")
     dot.Size = UDim2.new(0, 10, 0, 10)
@@ -459,7 +432,6 @@ local function createLegendItemRight(color, text, yPos)
 end
 createLegendItemRight(Color3.fromRGB(235, 60, 75), "Roja: Descontinuada", 12)
 
--- Función para crear los botones de juegos sin descripción (solo bolita y nombre grande)
 local function createScriptButton(gameName, stateColor, callback)
     local btn = Instance.new("TextButton")
     btn.Size = UDim2.new(1, -10, 0, 48)
@@ -476,7 +448,6 @@ local function createScriptButton(gameName, stateColor, callback)
     stroke.Thickness = 1.5
     stroke.Parent = btn
 
-    -- Bolita de Estado a la izquierda
     local dot = Instance.new("Frame")
     dot.Size = UDim2.new(0, 14, 0, 14)
     dot.Position = UDim2.new(0, 18, 0.5, -7)
@@ -488,7 +459,6 @@ local function createScriptButton(gameName, stateColor, callback)
     dotCorner.CornerRadius = UDim.new(1, 0)
     dotCorner.Parent = dot
 
-    -- Nombre del script al lado de la bolita
     local nameLabel = Instance.new("TextLabel")
     nameLabel.Size = UDim2.new(1, -45, 1, 0)
     nameLabel.Position = UDim2.new(0, 42, 0, 0)
@@ -513,43 +483,29 @@ local function createScriptButton(gameName, stateColor, callback)
     return btn
 end
 
--- 🟢 DUELOS (Verde)
 createScriptButton("DUELOS", Color3.fromRGB(45, 195, 90), function()
-    print("Ejecutando Duelos...")
     ScreenGui:Destroy()
     loadstring(game:HttpGet("https://github.com/vianeyfijosamunoz-svg/Deulos/raw/refs/heads/main/Script%20duelos"))()
 end)
 
--- 🟢 ARSENAL (Verde)
 createScriptButton("ARSENAL", Color3.fromRGB(45, 195, 90), function()
-    print("Ejecutando Arsenal...")
     ScreenGui:Destroy()
     loadstring(game:HttpGet("https://github.com/vianeyfijosamunoz-svg/Arsenal-roblox-script/raw/refs/heads/main/Arsenal%20script"))()
 end)
 
--- 🟡 RIVALS (Amarillo)
-createScriptButton("RIVALS", Color3.fromRGB(255, 195, 50), function()
-    print("Este script está en mantenimiento.")
+createScriptButton("RIVALS", Color3.fromRGB(45, 195, 90), function()
+    ScreenGui:Destroy()
+    loadstring(game:HttpGet("https://github.com/vianeyfijosamunoz-svg/Apocalypse.lol/raw/refs/heads/main/APOCALYPSE.LOL"))()
 end)
 
--- 🔵 ESCAPA DEL TECLADO (Azul)
 createScriptButton("ESCAPA DEL TECLADO", Color3.fromRGB(50, 150, 255), function()
-    print("Próximamente...")
 end)
 
--- 🔵 GROW A GARDEN 2 (Azul)
 createScriptButton("GROW A GARDEN 2", Color3.fromRGB(50, 150, 255), function()
-    print("Próximamente...")
 end)
 
--- 🔴 OVERKILL (Rojo)
 createScriptButton("OVERKILL", Color3.fromRGB(235, 60, 75), function()
-    print("Este script está descontinuado.")
 end)
-
--- ==========================================
--- 6. CONTENIDO DE LA SECCIÓN UNIVERSAL
--- ==========================================
 
 local FlyBtn = Instance.new("TextButton")
 FlyBtn.Size = UDim2.new(1, -10, 0, 50)
@@ -570,7 +526,6 @@ FlyStroke.Thickness = 1.5
 FlyStroke.Parent = FlyBtn
 
 FlyBtn.MouseButton1Click:Connect(function()
-    print("Ejecutando Fly V3...")
     loadstring(game:HttpGet("https://pastefy.app/TOXICU4j/raw"))()
 end)
 
@@ -593,7 +548,6 @@ EmotesStroke.Thickness = 1.5
 EmotesStroke.Parent = EmotesBtn
 
 EmotesBtn.MouseButton1Click:Connect(function()
-    print("Ejecutando Emotes & Animations...")
     loadstring(game:HttpGet("https://raw.githubusercontent.com/7yd7/Hub/refs/heads/Branch/GUIS/Emotes.lua"))()
 end)
 
@@ -810,9 +764,6 @@ RunService.RenderStepped:Connect(function()
     end
 end)
 
--- ==========================================
--- 7. LÓGICA DE VALIDACIÓN DE LAS KEYS
--- ==========================================
 local isVerifying = false
 
 SubmitBtn.MouseButton1Click:Connect(function()
