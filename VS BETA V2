@@ -1,0 +1,87 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "VICTORIUS HUB BETA V2", HidePremium = false, SaveConfig = true, ConfigFolder = "AxeHubConfig"})
+
+local MainTab = Window:MakeTab({
+	Name = "Paneles Principales",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+MainTab:AddButton({
+	Name = "🟢 DUELS",
+	Callback = function()
+      		loadstring(game:HttpGet("https://github.com/vianeyfijosamunoz-svg/Deulos/raw/refs/heads/main/Script%20duelos"))()
+  	end
+})
+
+MainTab:AddButton({
+	Name = "🟢 RIVALS",
+	Callback = function()
+      		loadstring(game:HttpGet("https://github.com/vianeyfijosamunoz-svg/Apocalypse.lol/raw/refs/heads/main/APOCALYPSE%20FREE%20V3"))()
+  	end
+})
+
+MainTab:AddButton({
+	Name = "🟢 ARSENAL",
+	Callback = function()
+      		loadstring(game:HttpGet("https://github.com/vianeyfijosamunoz-svg/Arsenal-roblox-script/raw/refs/heads/main/Arsenal%20script"))()
+  	end
+})
+
+MainTab:AddButton({
+	Name = "🟢 AIMBOT",
+	Callback = function()
+      		loadstring(game:HttpGet("https://github.com/vianeyfijosamunoz-svg/APOCALYPSE-AIMBOT/raw/refs/heads/main/APOCALYPSE.LOLONLY-AIMBOT-SUPORTED-%20+250%20GAMES"))()
+  	end
+})
+
+MainTab:AddButton({
+	Name = "🟢 AXE LUA FREE",
+	Callback = function()
+      		loadstring(game:HttpGet("https://github.com/vianeyfijosamunoz-svg/Byppas-and-orbitus-free/raw/refs/heads/main/AXE%20LUA%20FREE%20V1"))()
+  	end
+})
+
+MainTab:AddButton({
+	Name = "🟢 PANEL DE RENDIMIENTO",
+	Callback = function()
+      		loadstring(game:HttpGet("https://github.com/vianeyfijosamunoz-svg/AXE-KEYLLES-FPSBOOST/raw/refs/heads/main/AXE%20HUB%20KEYLESS%20STRECHED%20AND%20FPS%20BOOST"))()
+  	end
+})
+
+MainTab:AddButton({
+	Name = "🔵 GROW A GARDEN 2 PANEL",
+	Callback = function()
+  	end
+})
+
+MainTab:AddButton({
+	Name = "🔵 ESCAPA DEL TECLADO PANEL",
+	Callback = function()
+  	end
+})
+
+MainTab:AddButton({
+	Name = "🔴 OVERKILL PANEL",
+	Callback = function()
+  	end
+})
+
+local InfoTab = Window:MakeTab({
+	Name = "INFO",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+InfoTab:AddParagraph("ESTADOS", "🟢 TODO BIEN\n🔵 PRÓXIMAMENTE\n🔴 DESCONTINUADO\n🟡 NO ACTUALIZADO\n🟣 DETECTABLE")
+
+InfoTab:AddButton({
+	Name = "JOIN DISCORD",
+	Callback = function()
+		if setclipboard then
+			setclipboard("discord.gg/tvYWHS2B8")
+		end
+  	end
+})
+
+OrionLib:Init()
