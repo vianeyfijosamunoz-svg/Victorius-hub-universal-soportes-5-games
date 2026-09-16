@@ -1,4 +1,4 @@
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
+⁸local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "VICTORIUS HUB BETA V2", HidePremium = false, SaveConfig = true, ConfigFolder = "AxeHubConfig"})
 
 local MainTab = Window:MakeTab({
@@ -79,7 +79,7 @@ InfoTab:AddButton({
 	Name = "JOIN DISCORD",
 	Callback = function()
 		if setclipboard then
-			setclipboard("discord.gg/tvYWHS2B8")
+			setclipboard("discord.gg/AzhW3DmKF")
 		end
   	end
 })
